@@ -1,0 +1,54 @@
+#include 
+#include  //Supaya bisa menggunakan fungsi exit
+#define BIAYA_ADM 50.00 //Saya pakai define supaya mudah dalam perhitungan total nanti
+int main(){
+char kategori;
+float bpm;
+float biaya;
+float pemakaian_lalu;
+float pemakaian_ini;
+float besar_pemakaian;
+float sisa;
+float denda;
+     printf("\nMasukkan golongan anda\n(R untuk Rumah Tangga, U untuk Usaha) : ");
+     scanf("%c",&kategori);
+  if(kategori=='R'){
+          bpm = 10.00;
+     } else if (kategori=='U'){
+          bpm = 20.00;
+     } else {
+          printf("\nInput yang anda masukkan salah!\n");
+          exit(1);
+     }
+        printf("Masukkan jumlah pemakaian bulan lalu (dalam m3) : ");
+     scanf("%f",&pemakaian_lalu);
+     printf("Masukkan jumlah pemakaian bulan ini (dalam m3): ");
+     scanf("%f",&pemakaian_ini);
+     besar_pemakaian = pemakaian_ini - pemakaian_lalu;
+ printf("======================================================================\nJumlah pemakaian bulan ini : %.2f m3\n",besar_pemakaian);
+     if(besar_pemakaian>10){
+          sisa = besar_pemakaian - 10;
+          biaya = 50.00 + sisa * 10.00;
+   printf("Biaya pemakaian bulan ini : Rp %.2f\n",biaya);
+     } else if(besar_pemakaian<=10 && besar_pemakaian>0){
+          biaya = 50.00;
+printf("Biaya pemakaian bulan ini : Rp %.2f\n",biaya);
+     } else {
+   biaya = 0;
+   printf("Biaya pemakaian bulan ini : Rp %.2f\n",biaya);
+     }
+if(besar_pemakaian>100) {
+          denda = 20.00;
+   printf("Denda : Rp %.2f\n",denda);     
+} else if (besar_pemakaian>20){
+          denda = 10.00;
+   printf("Denda : Rp %.2f\n",denda);
+     } else {
+          denda = 0;
+   printf("Denda : Rp %.2f\n",denda);
+     }
+     printf("BPM : Rp %.2f\n",bpm);
+     printf("Biaya Administrasi : Rp %.2f\n",BIAYA_ADM);
+printf("======================================================================\nTotal : Rp %.2f + Rp %.2f + Rp %.2f + Rp %.2f = Rp %.2f\n", biaya, denda, bpm, BIAYA_ADM, BIAYA_ADM+bpm+biaya+denda);
+return 0;
+}
