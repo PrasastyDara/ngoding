@@ -1,0 +1,71 @@
+#include<stdio.h>
+
+
+int main(){
+
+    int film, harga, jumlah, total, bayar, kembalian;
+
+    char pilihan;
+
+
+
+    printf("\t******************\n");
+
+    printf("\t   CINEMA XXI\n");
+
+    printf("\t******************\n\n");
+
+    printf("--------------\n");
+
+    printf("Now Showing!!!\n");
+
+    printf("--------------\n\n");
+
+    printf("1. THE DOLL 3\n2. My Sassy Girl\n3. Thor: Love and Thunder (Premier)\n4. Jurassic World\n5. TOP GUN : MAVERICK\n");
+
+    printf("pilih film          : ");
+
+    scanf("%d",&film);
+
+
+
+    printf("harga satu tiket    : ");
+
+    scanf("%d",&harga);
+
+    printf("jumlah tiket        : ");
+
+    scanf("%d",&jumlah);
+
+    total=harga*jumlah;
+
+    if(total > 0){
+
+
+
+        printf("total yang harus dibayar adalah : %d\n\nmasukkan jumlah uang anda = ", total);
+
+        scanf("%d", &bayar);
+
+        if(bayar<total){
+
+            printf("\ntransaksi gagal, jumlah uang anda tidak cukup");
+
+        }else if(bayar>total){
+
+            kembalian = bayar-harga;
+
+            printf("\ntransaksi berhasil, jumlah uang anda adalah Rp.%d \nkembalian anda adalah Rp.%d", total, kembalian);
+
+        } else{
+
+            printf("\ntransaksi berhasil, uang anda pas\n");;
+
+        }
+
+    }
+
+    return 0;
+
+}
+
